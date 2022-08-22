@@ -46,10 +46,15 @@ class ProductController extends Controller
          if($categories){
             $product->where('categories_id',$categories);
          }
-         return ResponseFormatter::success(
+
+         return response()->json([
             $product->paginate($limit),
             'Data product Berhasil diambil'
-        );
+        ]);
+        //  return ResponseFormatter::success(
+        //     $product->paginate($limit),
+        //     'Data product Berhasil diambil'
+        // );
 
     }
 }

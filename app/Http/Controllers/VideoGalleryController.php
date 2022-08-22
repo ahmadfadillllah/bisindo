@@ -25,7 +25,7 @@ class VideoGalleryController extends Controller
                 ->addColumn('action', function ($item) {
                     return '
                     <form class="inline-block" action="' . route('dashboard.vidio.destroy', $item->id) . '" method="POST">
-                    <button class="border border-red-500 bg-red-500 text-white rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline" >
+                    <button class="border border-red-500 bg-red-500 text-balck rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline" >
                         Hapus
                     </button>
                         ' . method_field('delete') . csrf_field() . '
@@ -106,9 +106,10 @@ class VideoGalleryController extends Controller
      * @param  \App\Models\VidoeGallery  $vidoeGallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(VidoeGallery $vidoeGallery, Product $product)
+    public function destroy($id)
     {
-       VidoeGallery::where( $vidoeGallery->products_id)->delete();
-        return  back();
+     VidoeGallery::where( 'id', $id)->delete();
+
+    return redirect()->back();
     }
 }
