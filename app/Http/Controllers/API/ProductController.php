@@ -35,7 +35,8 @@ class ProductController extends Controller
         
 
          }
-         $product=Product::with(['category','vidoegallary','gallaries']);
+        //  $product=Product::with(['category','vidoegallary','gallaries']);
+         $product=Product::join('product_categories', 'product.categories_id', 'product_categories.id');
 
          if($name){
             $product->where('name','like','%'.$name.'%');
