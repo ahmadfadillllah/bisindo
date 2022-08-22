@@ -49,7 +49,7 @@ class ProductController extends Controller
 
          return response()->json([
             $product->paginate($limit),
-            'Data product Berhasil diambil'
+            'Data product suddaaaah diambil'
         ]);
         //  return ResponseFormatter::success(
         //     $product->paginate($limit),
