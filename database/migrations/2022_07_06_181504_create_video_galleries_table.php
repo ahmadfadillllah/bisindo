@@ -19,7 +19,6 @@ class CreateVideoGalleriesTable extends Migration
             $table->string('url');
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('products_id')->references('id')->on('products');
         });
     }
 

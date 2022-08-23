@@ -18,11 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('tags');
             $table->unsignedBigInteger('categories_id');
-            $table->unsignedBigInteger('categories_id');
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('categories_id')->references('id')->on('product_categories');
         });
     }
 
