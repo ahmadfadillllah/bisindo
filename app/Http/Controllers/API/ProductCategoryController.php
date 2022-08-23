@@ -19,7 +19,7 @@ class ProductCategoryController extends Controller
         {
             $category=ProductGallery::with(['products'])->find($id);
             
-            $category = ProductGallery::join('products', 'product_galleries.products_id', 'products.id')->find($id);
+            // $category = ProductGallery::join('products', 'product_galleries.products_id', 'products.id')->find($id);
             if ($category) {
                 return ResponseFormatter::success(
                     $category,
