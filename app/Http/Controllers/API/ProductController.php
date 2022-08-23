@@ -35,8 +35,7 @@ class ProductController extends Controller
         
 
          }
-        //  $product=Product::with(['category','vidoegallary','gallaries']);
-         $product=Product::join('product_categories', 'product.categories_id', 'product_categories.id');
+         $product=Product::with(['category','vidoegallary','gallaries']);
 
          if($name){
             $product->where('name','like','%'.$name.'%');
@@ -47,15 +46,10 @@ class ProductController extends Controller
          if($categories){
             $product->where('categories_id',$categories);
          }
-
-         return response()->json([
-            $product->paginate($limit),
-            'Data product suddaaaah diambil'
-        ]);
-        //  return ResponseFormatter::success(
-        //     $product->paginate($limit),
-        //     'Data product Berhasil diambil'
-        // );
+         return ResponseFormatter::success(
+            $product->get(),
+            'Data product Berhasil diambil'
+        );
 
     }
 }

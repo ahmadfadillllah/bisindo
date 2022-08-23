@@ -15,10 +15,11 @@ class CreateVideoGalleriesTable extends Migration
     {
         Schema::create('vidoe_galleries', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('products_id');
+            $table->unsignedBigInteger('products_id');
             $table->string('url');
             $table->softDeletes();
             $table->timestamps();
+            $table->foreign('products_id')->references('id')->on('products');
         });
     }
 
