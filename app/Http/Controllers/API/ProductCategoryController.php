@@ -43,7 +43,7 @@ class ProductCategoryController extends Controller
             $category->with('products');
          }
          return ResponseFormatter::success(
-            $category->paginate($limit),
+            $category->paginate(20),
             'Data kateory Berhasil diambil'
         );
     }

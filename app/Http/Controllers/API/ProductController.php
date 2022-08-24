@@ -47,7 +47,7 @@ class ProductController extends Controller
             $product->where('categories_id',$categories);
          }
          return ResponseFormatter::success(
-            $product->get(),
+            $product->paginate(400),
             'Data product Berhasil diambil'
         );
 
